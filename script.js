@@ -149,7 +149,7 @@ function enterScore() {
   scoreEl.textContent = `Final Score: ${score}`
   headerEl.appendChild(divEl)
   divEl.appendChild(scoreEl)
-  hideEl.classList.add('hide')
+//   hideEl.classList.add('hide')
   
 }
 // timer
@@ -191,7 +191,7 @@ questionAsker = () => {
     enterScore()
   } else {
     // append the list to be populated to the textEl
-    textEl.replaceWith(aList)
+    
 
     // store current question
     currentQuestion = questions[i]
@@ -203,6 +203,8 @@ questionAsker = () => {
     answerButton1.innerHTML = questions[i].answers.a
     answerButton2.innerHTML = questions[i].answers.b
     answerButton3.innerHTML = questions[i].answers.c
+
+    textEl.replaceWith(aList)
     
     //render each answer to the list
     aList.appendChild(answerButton1)
