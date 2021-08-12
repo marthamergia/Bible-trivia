@@ -140,7 +140,7 @@ function enterScore() {
   // clear timer
   clearInterval(timerInterval)
   timerEl.textContent = ''
-//   console.log('GAME OVER')
+  //   console.log('GAME OVER')
   // print 'Game Over!'
   headerEl.textContent = 'Game Over!'
   // print the score to the page
@@ -149,8 +149,7 @@ function enterScore() {
   scoreEl.textContent = `Final Score: ${score}`
   headerEl.appendChild(divEl)
   divEl.appendChild(scoreEl)
-//   hideEl.classList.add('hide')
-  
+  aList.classList.add('hide')
 }
 // timer
 function timer() {
@@ -158,26 +157,26 @@ function timer() {
     // decrement seconds left
     secondsRemaning--
     timerEl.textContent = 'Timer: ' + secondsRemaning
-    
-   //if secondsRemaining == 0, stop the game and clear the timer
+
+    //if secondsRemaining == 0, stop the game and clear the timer
     if (secondsRemaning == 0) {
-        clearInterval(timerInterval)
-        timerEl.textContent = 'Timer: ' + secondsRemaning
-        enterScore()
+      clearInterval(timerInterval)
+      timerEl.textContent = 'Timer: ' + secondsRemaning
+      enterScore()
     }
-}, 1000)
+  }, 1000)
 }
 
 // question generator/ game start
 function gamestart() {
   // hide start button
-//   hideEl.classList.add('hide')
-  
+  startButtonEl.classList.add('hide')
+
   timer()
 
   // shuffle the question order
   questions.sort(() => Math.random() - 0.5)
-//   console.log( "theQuestions", questions)
+  //   console.log( "theQuestions", questions)
   // store the current question
   currentQuestion = questions[i]
 
@@ -189,9 +188,9 @@ function gamestart() {
 questionAsker = () => {
   if (questionArray.length >= questions.length || secondsRemaning == 0) {
     enterScore()
+    startButtonEl.classList.remove('hide')
   } else {
     // append the list to be populated to the textEl
-    
 
     // store current question
     currentQuestion = questions[i]
@@ -205,12 +204,12 @@ questionAsker = () => {
     answerButton3.innerHTML = questions[i].answers.c
 
     textEl.replaceWith(aList)
-    
+
     //render each answer to the list
     aList.appendChild(answerButton1)
     aList.appendChild(answerButton2)
     aList.appendChild(answerButton3)
-    
+
     // console.log('value of i: ', i)
     console.log('CURRENT a: ', aList)
   }
@@ -234,7 +233,7 @@ addEventListener('load', () => {
   // if hide element exists on the page...
   if (hideEl) {
     // ...show the start button
-    hideEl.classList.remove('hide')
+    startButtonEl.classList.remove('hide')
   }
 })
 
@@ -245,7 +244,7 @@ document.addEventListener('click', function (e) {
   if (e.target.classList.contains('answer-button')) {
     // console.log('answer buttons work')
     if (e.target.classList.contains(currentQuestion.correctAnswer)) {
-    //   console.log('CORRECT ANSWER WORKING')
+      //   console.log('CORRECT ANSWER WORKING')
       // add one to score
       score++
       if (result.classList.contains('wrong')) {
@@ -263,10 +262,10 @@ document.addEventListener('click', function (e) {
       // ask next quesiton
       questionAsker()
     } else {
-    //   console.log('WRONG ANSWER WORKING')
+      //   console.log('WRONG ANSWER WORKING')
       // for a wrong answer, take 10 seconds off the clock
       secondsRemaning -= 10
-      
+
       result.textContent = 'Wrong!'
       // erase message after 1.5 seconds
       setTimeout(function () {
@@ -282,6 +281,6 @@ document.addEventListener('click', function (e) {
 
 // if start button el exists on page...
 if (startButtonEl) {
-//   // ...on button click start quiz
+  //   // ...on button click start quiz
   startButtonEl.addEventListener('click', gamestart)
 }
