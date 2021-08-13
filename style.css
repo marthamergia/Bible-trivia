@@ -11,16 +11,17 @@ body {
   width: 100vw;
   justify-content: center;
   align-items: center;
-  background-color: coral;
+  background-color: rgb(255, 99, 71);
   
 }
 
 .container {
-  width: 800px;
-  max-width: 80%;
+  width: 900px;
+  max-width: 90%;
   background-color: cornsilk;
   border-radius: 5px;
   padding: 10px;
+  margin: 100px;
   box-shadow: 0 0 10px 2px;
 }
 
@@ -59,4 +60,8 @@ body {
 
 .hide {
   display: none;
+}
+
+.myH3 {
+  
 }

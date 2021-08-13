@@ -8,103 +8,73 @@ let currentQuestionIndex = 0
 
 const questions = [
   {
-    question: ,
-    answer: [
-      {text: },
-      {text: },
-      {text: }
-    ],
-    correctAnswer: ''
+    question: 'How many books are in the New Testament?',
+    answer: [{ text: '24' }, { text: '36' }, { text: '27' }],
+    correctAnswer: '27'
   },
   {
-    question: ,
-    answer: [
-      {text: },
-      {text: },
-      {text: }
-    ],
-    correctAnswer: ''
+    question: 'What type of insect did John the Baptist eat in the desert?',
+    answer: [{ text: 'Ants' }, { text: 'Locust' }, { text: 'Scorpions' }],
+    correctAnswer: 'Locust'
   },
   {
-    question: ,
-    answer: [
-      {text: },
-      {text: },
-      {text: }
-    ],
-    correctAnswer: ''
+    question:
+      'After Jesus was arrested, which apostle disowned him three times?',
+    answer: [{ text: 'Peter' }, { text: 'John' }, { text: 'Judah' }],
+    correctAnswer: 'Peter'
   },
   {
-    question: ,
-    answer: [
-      {text: },
-      {text: },
-      {text: }
-    ],
-    correctAnswer: ''
+    question:
+      'Where did Mary and Joseph flee with the baby Jesus when an angel warned them Herod was trying to kill the child?',
+    answer: [{ text: 'Bethelhem' }, { text: 'Nazreth' }, { text: 'Egypt' }],
+    correctAnswer: 'Egypt'
   },
   {
-    question: ,
-    answer: [
-      {text: },
-      {text: },
-      {text: }
-    ],
-    correctAnswer: ''
+    question: 'Who asked Pilate for Jesus body after the crucifixion?',
+    answer: [{ text: 'Nicodemus' }, { text: 'Joseph' }, { text: 'Mary' }],
+    correctAnswer: 'Nicodemus'
   },
   {
-    question: ,
+    question: 'When did the events of the New Testament take place?',
     answer: [
-      {text: },
-      {text: },
-      {text: }
+      { text: '2nd century AD' },
+      { text: '1st century BC' },
+      { text: '1st century AD' }
     ],
-    correctAnswer: ''
+    correctAnswer: '1st century AD'
   },
   {
-    question: ,
-    answer: [
-      {text: },
-      {text: },
-      {text: }
-    ],
-    correctAnswer: ''
+    question:
+      'Who was not present when the other apostles saw Jesus risen from the dead?',
+    answer: [{ text: 'Thomas' }, { text: 'Mathew' }, { text: 'James' }],
+    correctAnswer: 'Thomas'
   },
   {
-    question: ,
+    question: 'What name did Jesus give to James & John',
     answer: [
-      {text: },
-      {text: },
-      {text: }
+      { text: 'Sons of the sea' },
+      { text: 'Sons of the sun' },
+      { text: 'Sons of thunder' }
     ],
-    correctAnswer: ''
+    correctAnswer: 'Sons of thunder'
   },
   {
-    question: ,
-    answer: [
-      {text: },
-      {text: },
-      {text: }
-    ],
-    correctAnswer: ''
+    question:
+      'What language were the books of the New Testament originally written in?',
+    answer: [{ text: 'Hebrew' }, { text: 'Greek' }, { text: 'Roman' }],
+    correctAnswer: 'Greek'
   },
   {
-    question: ,
-    answer: [
-      {text: },
-      {text: },
-      {text: }
-    ],
-    correctAnswer: ''
-  },
-  
-  
+    question: 'Jesus healed the mother-in-law of which apostle?',
+    answer: [{ text: 'Peter' }, { text: 'John' }, { text: 'Mathew' }],
+    correctAnswer: 'Peter'
+  }
 ]
 
 startButton.addEventListener('click', startGame)
 
 function startGame() {
-//   console.log('started')
+  //   console.log('started')
   startButton.classList.add('hide')
   shuffledQuestions = questions.sort(() => Math.random() - 0.5)
   currentQuestionIndex = 0
@@ -131,9 +101,12 @@ function showAnswers(question) {
       if (answers[i].text === question.correctAnswer) {
         currentQuestionIndex++
         answerButtonEl.innerHTML = ''
+        // document.body.style.background = 'green'
         setNextQuestion()
       } else {
-        console.log('false')
+        //   setNextQuestion()
+        // startButton.innerText = 'Restart'
+        // startButton.classList.remove('hide')
       }
     })
     answerButtonEl.appendChild(btn)
