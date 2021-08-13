@@ -3,7 +3,7 @@ const questionContainerEl = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonEl = document.getElementById('answer-buttons')
 const theH3 = document.getElementById('myH3')
-const letsStart = document.getElementById('lets-start')
+
 
 let shuffledQuestions
 let currentQuestionIndex = 0
@@ -75,7 +75,6 @@ const questions = [
 ]
 
 startButton.addEventListener('click', startGame)
-// letsStart.addEventListener('click', startGame)
 
 function startGame() {
   startButton.classList.add('hide')
