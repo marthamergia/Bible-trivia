@@ -2,9 +2,12 @@ const startButton = document.getElementById('start-btn')
 const questionContainerEl = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonEl = document.getElementById('answer-buttons')
+const theH3 = document.getElementById('myH3')
+const letsStart = document.getElementById('lets-start')
 
 let shuffledQuestions
 let currentQuestionIndex = 0
+let score = 0
 
 const questions = [
   {
@@ -72,17 +75,26 @@ const questions = [
 ]
 
 startButton.addEventListener('click', startGame)
+// letsStart.addEventListener('click', startGame)
 
 function startGame() {
-  //   console.log('started')
   startButton.classList.add('hide')
   shuffledQuestions = questions.sort(() => Math.random() - 0.5)
   currentQuestionIndex = 0
+  score = 0
   questionContainerEl.classList.remove('hide')
   setNextQuestion()
 }
 function setNextQuestion() {
+  if (currentQuestionIndex >= questions.length) {
+    questionElement.innerHTML = `GAME OVER! YOU HAD ${score} CORRECT ANSWERS!`
+    startButton.innerText = 'Restart'
+    startButton.classList.remove('hide')
+  }
   let currentQuestion = shuffledQuestions[currentQuestionIndex]
+  theH3.innerText = ''
+  answerButtonEl.innerHTML = ''
+  document.body.style.background = 'rgb(255, 99, 71)'
   showQuestion(currentQuestion)
   showAnswers(currentQuestion)
 }
@@ -93,20 +105,20 @@ function showQuestion(question) {
 function showAnswers(question) {
   let answers = question.answer
   for (let i = 0; i < answers.length; i++) {
-    // console.log(answers[i].text)
     let btn = document.createElement('button')
     btn.classList.add('btn')
     btn.innerText = answers[i].text
     btn.addEventListener('click', () => {
+      currentQuestionIndex++
       if (answers[i].text === question.correctAnswer) {
-        currentQuestionIndex++
-        answerButtonEl.innerHTML = ''
-        // document.body.style.background = 'green'
-        setNextQuestion()
+        score++
+        document.body.style.background = 'green'
+        theH3.innerText = 'Correct! Good job'
+        setTimeout(setNextQuestion, 1000)
       } else {
-        //   setNextQuestion()
-        // startButton.innerText = 'Restart'
-        // startButton.classList.remove('hide')
+        theH3.innerText = 'Not Correct!'
+        document.body.style.background = 'red'
+        setTimeout(setNextQuestion, 2000)
       }
     })
     answerButtonEl.appendChild(btn)
