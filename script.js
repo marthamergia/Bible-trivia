@@ -4,7 +4,6 @@ const questionElement = document.getElementById('question')
 const answerButtonEl = document.getElementById('answer-buttons')
 const theH3 = document.getElementById('myH3')
 
-
 let shuffledQuestions
 let currentQuestionIndex = 0
 let score = 0
@@ -76,6 +75,7 @@ const questions = [
 
 startButton.addEventListener('click', startGame)
 
+//Game starts here
 function startGame() {
   startButton.classList.add('hide')
   shuffledQuestions = questions.sort(() => Math.random() - 0.5)
@@ -84,6 +84,8 @@ function startGame() {
   questionContainerEl.classList.remove('hide')
   setNextQuestion()
 }
+
+//set next question
 function setNextQuestion() {
   if (currentQuestionIndex >= questions.length) {
     questionElement.innerHTML = `GAME OVER! YOU HAD ${score} CORRECT ANSWERS!`
@@ -98,9 +100,12 @@ function setNextQuestion() {
   showAnswers(currentQuestion)
 }
 
+//Render question
 function showQuestion(question) {
   questionElement.innerText = question.question
 }
+
+//Game logic
 function showAnswers(question) {
   let answers = question.answer
   for (let i = 0; i < answers.length; i++) {
