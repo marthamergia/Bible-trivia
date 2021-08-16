@@ -15,7 +15,7 @@ body {
   
 }
 
-.container {
+.container, #welcome{
   width: 900px;
   max-width: 90%;
   background-color: cornsilk;
@@ -62,7 +62,7 @@ body {
   display: none;
 }
 
-#welcome {
+#welcome, #lets-start{
   text-align: center;
   color: brown;
   font-weight: bold;
@@ -70,9 +70,10 @@ body {
 }
 
 #lets-start {
-  position: absolute;
+  position: relative;
   padding: 15px;
-  margin-top: 300px;
+  margin-top: 350px;
+  margin-right: 150px;
   background-color: cornsilk;
   color: brown
 }

@@ -122,7 +122,7 @@ function showAnswers(question) {
       } else {
         theH3.innerText = 'Not Correct!'
         document.body.style.background = 'red'
-        setTimeout(setNextQuestion, 2000)
+        setTimeout(setNextQuestion, 1000)
       }
     })
     answerButtonEl.appendChild(btn)
