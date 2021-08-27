@@ -34,7 +34,7 @@ const questions = [
   {
     question: 'Who asked Pilate for Jesus body after the crucifixion?',
     answer: [{ text: 'Nicodemus' }, { text: 'Joseph' }, { text: 'Mary' }],
-    correctAnswer: 'Nicodemus'
+    correctAnswer: 'Joseph'
   },
   {
     question: 'When did the events of the New Testament take place?',
